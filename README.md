@@ -1,3 +1,13 @@
+# Sahil's resource
+
+[PluralSight Course](https://app.pluralsight.com/library/courses/angular-fundamentals/table-of-contents)
+
+[Author GitHub-JmCooper](https://github.com/jmcooper/angular-fundamentals-files/blob/master/package.json)
+
+Place exercise file in *learning_resource* folder
+
+[Practice Exercise  Link](https://jcoop.io/angular-practice-exercises/)
+
 # NgFundamentals
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
