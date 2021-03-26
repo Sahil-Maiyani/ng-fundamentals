@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl, FormGroup } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from './services/auth.service'
 
 @Component({
   templateUrl: './profile.component.html',
+  styles:[`
+    em {float:right; color: #E05C65; padding-left: 10px}
+    .error input {background-color: #E05C65}
+  `]
 })
 export class ProfileComponent implements OnInit {
   editProfileForm: FormGroup
   constructor(private router: Router, private authService: AuthService){}
 
   ngOnInit(): void {
-    let firstNameControl  = new FormControl(this.authService.currentUser?.firstName)
-    let lastNameControl = new FormControl(this.authService.currentUser?.lastName)
+    let firstNameControl  = new FormControl(this.authService.currentUser?.firstName, Validators.required)
+    let lastNameControl = new FormControl(this.authService.currentUser?.lastName, Validators.required)
     this.editProfileForm = new FormGroup({
       firstName: firstNameControl,
       lastName: lastNameControl
@@ -20,6 +24,9 @@ export class ProfileComponent implements OnInit {
   }
 
   OnSubmitForm(formValues){
+    if(!this.editProfileForm.valid){
+      return
+    }
     this.authService.updateUserInformation(formValues.firstName, formValues.lastName)
     this.router.navigate(['events'])
   }
