@@ -16,6 +16,8 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
 import { EventListResolver } from './events/event-list-resolver.service';
 import { AuthService } from './user/services/auth.service';
 import { UserEditRouteActivator } from './user/user-edit-route-activator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,14 @@ import { UserEditRouteActivator } from './user/user-edit-route-activator';
     EventThumbnailComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     EventService,
