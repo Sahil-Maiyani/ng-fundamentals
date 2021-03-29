@@ -1,6 +1,6 @@
 <div>
     <H1>Upcoming Events List</H1>
-    <hr/>
+    <hr />
     <div class="row">
         <div class="col-md-5" *ngFor="let event of events">
             <event-thumbnail (eventClick)="handleEventClick($event)" [event]="event"></event-thumbnail>
