@@ -3,13 +3,13 @@
 
   <div class="row">
     <div class="col-md-11">
-      <h2>{{event?.name}} </h2>
+      <h2>{{event?.name | uppercase}} </h2>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6">
-      <div><strong>Date:</strong> {{event?.date}}</div>
+      <div><strong>Date:</strong> {{event?.date | date}}</div>
       <div><strong>Time:</strong> {{event?.time}}</div>
       <div><strong>Price:</strong> ${{event?.price}}</div>
     </div>
@@ -33,12 +33,36 @@
         Sessions:
       </h3>
     </div>
+
+    <div class="col-md-7">
+      Sort:
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-default" [class.active]="sortBy === 'name'" (click)="sortBy = 'name'">Name</button>
+        <button class="btn btn-default" [class.active]="sortBy === 'votes'"
+          (click)="sortBy = 'votes'">votes</button>
+
+      </div>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Filter:
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-default" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">All</button>
+        <button class="btn btn-default" [class.active]="filterBy === 'beginner'"
+          (click)="filterBy = 'beginner'">Beginner</button>
+        <button class="btn btn-default" [class.active]="filterBy === 'intermediate'"
+          (click)="filterBy = 'intermediate'">Intermediate</button>
+        <button class="btn btn-default" [class.active]="filterBy === 'advanced'"
+          (click)="filterBy = 'advanced'">Advanced</button>
+      </div>
+    </div>
+
     <div class="col-md-2" style="float: right;">
       <button class="btn-primary" (click)="addSession()">
         Add Session
       </button>
     </div>
   </div>
-  <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
-  <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelNewSession)="cancelNewSession()"></create-session>
+  <session-list *ngIf="!addMode" [sessions]="event?.sessions" [filterBy]="filterBy" [sortBy]="sortBy"></session-list>
+  <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelNewSession)="cancelNewSession()">
+  </create-session>
 </div>
