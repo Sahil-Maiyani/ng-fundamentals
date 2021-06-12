@@ -1,10 +1,7 @@
-import { Injectable } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
-declare let toastr;
+export let TOASTR_TOKEN = new InjectionToken<any>('toastr');
 
-@Injectable()
-export class ToastrService {
-    success(message: string, title?: string) {
-        toastr.success(message, title, { 'positionClass': 'toast-bottom-right' })
-    }
+export interface Toastr {
+    success(msg: string, title?: string):void
 }

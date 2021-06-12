@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { Router } from "@angular/router";
-import { ToastrService } from "../common/service/toastr.service";
+import { Toastr, TOASTR_TOKEN } from "../common/service/toastr.service";
 import { AuthService } from "./services/auth.service";
 
 @Component({
@@ -14,7 +14,7 @@ export class LoginComponent {
     password: string
     mouseOverLogin: boolean
     constructor(private authService: AuthService, 
-                private toastrService: ToastrService, 
+               @Inject(TOASTR_TOKEN) private toastrService: Toastr, 
                 private router : Router){
 
     }
