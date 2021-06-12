@@ -2,3 +2,7 @@
   height: 250px;
   overflow-y: scroll;
 }
+
+.modal-width {
+  width: 50%;
+}

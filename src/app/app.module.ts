@@ -24,6 +24,9 @@ import { DurationPipe } from './events/shared/duration.pipe';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 import { JQ_TOKEN } from './common/service/jQuery.service';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
+import { UpvoteComponent } from './events/event-details/upvote/upvote.component';
+import { VoterService } from './events/event-details/voter.service';
+import { LocationValidator } from './events/location-validator.directive';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -41,7 +44,9 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     SimpleModalComponent,
+    UpvoteComponent,
     ModalTriggerDirective,
+    LocationValidator,
     DurationPipe,
   ],
   imports: [
@@ -57,6 +62,7 @@ let jQuery = window['$'];
     EventRouteActivator,
     EventListResolver,
     AuthService,
+    VoterService,
     UserEditRouteActivator,
     { provide: 'checkCreateEventDeactivateFuntion', useValue: checkCreateEventDeactivateFuntion }
   ],
