@@ -6,13 +6,13 @@ import { Observable } from "rxjs";
 import { IEvent } from "./shared/events.model";
 
 @Injectable()
-export class EventListResolver implements Resolve<any>{
+export class EventResolver implements Resolve<any>{
     constructor(private eventService : EventService ){
 
     }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<IEvent[]> {
-        return this.eventService.getEvents();
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<IEvent> {
+        return this.eventService.getEvent(+route.params['id']);
     }
 
 }

@@ -13,9 +13,10 @@
           <em *ngIf="!validateLastName()">Required</em>
           <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
         </div>
-  
+
         <button type="submit" class="btn btn-primary">Save</button>
         <button type="button" (cancel)="handleCancel()" class="btn btn-default">Cancel</button>
+        <button type="button" (click)="handleLogout()" class="btn btn-warning" style="float:right">Logout</button>
       </form>
     </div>
   </div>

@@ -15,9 +15,10 @@ export class EventsListComponent implements OnInit {
   constructor(private eventService: EventService, @Inject(TOASTR_TOKEN) private toastrService: Toastr, private route: ActivatedRoute) {
     this.toastr = toastrService
   }
-  
+
   ngOnInit(){
-    this.eventService.getEvents().subscribe(events => { this.events = events});
+    // this.eventService.getEvents().subscribe(events => { this.events = events});
+    this.events = this.route.snapshot.data['events'];
   }
 
   handleEventClick(data) {
