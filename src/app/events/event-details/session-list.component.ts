@@ -19,7 +19,7 @@ export class SessionListComponent implements OnChanges {
     public authService: AuthService
   ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     if (!this.sessions) return;
     this.filterSessions(this.filterBy);
 
